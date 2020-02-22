@@ -6,4 +6,4 @@
 
 * Sample code to connect to Twitter API using RestTemplate avaiable [here](/src/main/java/com/smilep/twitter/service/impl/FollowersServiceImpl.java)
 
-* This application also contains a SpringBoot based REST service which checks if a Twitter handle follows another. You can run the application by executing the main method of [TwitterPlayApplication](/src/main/java/com/smilep/twitter/TwitterPlayApplication.java) and then access the Swagger UI to try out the websservice at http://localhost:8090/swagger-ui.html
+* This application also contains a SpringBoot based REST service which checks if a Twitter handle follows another. You can run the application by executing the main method of [TwitterPlayApplication](/src/main/java/com/smilep/twitter/TwitterPlayApplication.java) and then access the Swagger UI to try out the webservice at http://localhost:8090/swagger-ui.html

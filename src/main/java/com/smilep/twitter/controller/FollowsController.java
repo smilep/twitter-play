@@ -19,7 +19,7 @@ public class FollowsController {
     @Autowired
     private FollowersService followersService;
 
-    @GetMapping
+    @GetMapping(path = "/isXFollowsY")
     @ApiOperation(value = "Is handle X following handle Y?")
     public FollowersResponse isXFollowsY(@RequestParam("x") @ApiParam(required = true, value = "Twitter Handle X") String x,
             @RequestParam("y") @ApiParam(required = true, value = "Twitter Handle Y") String y) {

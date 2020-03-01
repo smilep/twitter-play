@@ -2,3 +2,8 @@ language: java
 
 jdk:
   - openjdk8
+  
+stages:
+- name: deploy
+  if: branch = master
+  script: heroku:deploy

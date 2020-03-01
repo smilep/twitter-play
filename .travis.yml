@@ -1,6 +1,5 @@
 jdk:
-  - openjdk8
-  
+  - openjdk8  
 jobs:
   include:
     - stage: build

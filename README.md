@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/smilep/twitter-play.svg?branch=master)](https://travis-ci.org/smilep/twitter-play)
+
 # Twitter Play
 
 ## Demonstrates connecting to Twitter API using oAuth 1.0a. oAuth 1.0a header generated purely using Java 8 without 3rd party application.

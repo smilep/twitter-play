@@ -3,8 +3,8 @@
 # Twitter Play
 
 ### Demonstrates connecting to Twitter API using oAuth 1.0a. oAuth 1.0a header generated purely using Java 8 without 3rd party application.
-<hr />
 ### Exposes a REST API to check if a twitter handle follows another twitter handle
+
 <hr />
 
 * Check [TwitterOauthHeaderGenerator](/src/main/java/com/smilep/twitter/helper/TwitterOauthHeaderGenerator.java) to directly see the code to generate oAuth 1.0a Authorization header.

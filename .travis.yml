@@ -2,9 +2,4 @@ language: java
 jdk:
   - openjdk8
 install: true
-jobs:
-  include:
-    - if: branch = master
-      script: mvn clean package && mvn heroku:deploy
-    - if: branch = develop
-      script: mvn clean verify
+script: if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then echo "No Deploy" && mvn clean verify; else echo "Deploying.." && mvn clean package && mvn heroku:deploy; fi

@@ -4,7 +4,7 @@ jdk:
 install: true
 jobs:
   include:
-    - if: type != pull_request
+    - if: env(deployToHeroku) IS present
       script: mvn clean package && mvn heroku:deploy
-    - if: type = pull_request
+    - if: env(deployToHeroku) IS NOT present
       script: mvn clean verify

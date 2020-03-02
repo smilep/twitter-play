@@ -4,11 +4,11 @@ jdk:
 jobs:
   include:
     - stage: build
-      script: "mvn clean verify"
+      script: mvn clean verify
       if: (branch = develop)
     - stage: package
-      script: "mvn clean package"
+      script: mvn clean package
       if: (branch = master) AND (NOT (type IN (push, pull_request)))
     - stage: deploy
-      script: "mvn heroku-deploy"
+      script: mvn heroku-deploy
       if: (branch = master) AND (NOT (type IN (push, pull_request)))

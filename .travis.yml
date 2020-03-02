@@ -2,9 +2,4 @@ language: java
 jdk:
   - openjdk8
 install: true
-jobs:
-  include:
-    - if: env(deployToHeroku) IS present AND type != pull_request
-      script: mvn clean package && mvn heroku:deploy
-    - if: env(deployToHeroku) IS NOT present
-      script: mvn clean verify
+script: if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then mvn clean verify; else mvn clean package && mvn heroku:deploy; fi

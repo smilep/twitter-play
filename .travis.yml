@@ -4,7 +4,7 @@ jdk:
 install: true
 jobs:
   include:
-    - if: branch = master
+    - if: type != pull_request
       script: mvn clean package && mvn heroku:deploy
-    - if: branch = develop
+    - if: type = pull_request
       script: mvn clean verify

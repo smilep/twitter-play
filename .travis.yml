@@ -1,9 +1,10 @@
 language: java
 jdk:
-  - openjdk8  
+  - openjdk8
+install: true
 jobs:
   include:
     - if: branch = master
-      script: mvn clean package && mvn heroku-deploy
+      script: mvn clean package && mvn heroku:deploy
     - if: branch = develop
       script: mvn clean verify

@@ -5,14 +5,10 @@ jobs:
   include:
     - stage: build
       script: "mvn clean verify"
+      if: (branch = develop)
     - stage: package
       script: "mvn clean package"
+      if: (branch = master) AND (NOT (type IN (push, pull_request)))
     - stage: deploy
       script: "mvn heroku-deploy"
-stages:
-  - name: build
-    if: (branch = develop)
-  - name: package
-    if: (branch = master) AND (NOT (type IN (push, pull_request)))
-  - name: deploy
-    if: (branch = master) AND (NOT (type IN (push, pull_request)))
+      if: (branch = master) AND (NOT (type IN (push, pull_request)))

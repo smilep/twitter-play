@@ -6,6 +6,9 @@ script: if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then echo "No Deploy..." && mv
 branches:
   only:
     - master
+cache:
+  directories:
+  - "~/.m2/repository"
 env:
   global:
     - secure: SCcqUPKuE34UWhOCMgmACSWhcIfHYKUNEbbypT1Czj3mo+lj7MGhkdH+XbSt8HkYwn8pveAJw3BRyZgda8B1PzcHPYpLfKrt2p54xfdtunI5/7ObUnQpbT8JaCOX2wTd8iVGc7zLVs3RtGQ0Ky0/h1poRnzWgTl8+pbZzc+hj9DHkTiegMluO07LBatYQ+eKgZHPPFB/J3Sb0JUwHHzyLdkV9n96rTucehuoa9cGqC1G6y9yi446BVTwpl6F20HQRX3iXeoI5Gtmb61mRY8i5Yf+32JFq9xW4uYUTGo9ikKhWs2bhxrBhYxrzsZFHJoKq+R80VodkwCJIa8dN279PuNhcPWjjZfk+qdpLLPBLPCg3aE0BIOWEfHgU6wUR8fH6shMsnmqZjT0eosfPGZWmAiMibIGvZn5DnYKdEWcX+xdRO2cugSdL7JUzAWAjc2Qo1UZMHrZzXdHzv3usdANtk9g6NaowThJP8krmvECft0N15inQo8UWwO0TsNVvdV0NAqbBZI3nTPN65UhjR0i26t0byHnMdk4rOD5mz0F7tDzYQTgjw/2HBJu//djp/U4+ii6z7Gn14CjbAY11sI+uthOagCyxqouEmAPT3cYSIpD5Vg56+qSjzxBy40FBiKhq6JIZnKuX3ZyiManWH+xVjaz0rQQ1EjveBszB8Y/oyQ=

@@ -3,24 +3,22 @@ package com.smilep.twitter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 import com.smilep.twitter.helper.TwitterOauthHeaderGenerator;
 
 @Configuration
-@PropertySource("classpath:twitter.properties")
 public class TwitterAuthConfig {
 
-    @Value("${oauth.consumerKey}")
+    @Value("${twitter.oauth.consumerKey}")
     private String consumerKey;
 
-    @Value("${oauth.consumerSecret}")
+    @Value("${twitter.oauth.consumerSecret}")
     private String consumerSecret;
 
-    @Value("${oauth.accessToken}")
+    @Value("${twitter.oauth.accessToken}")
     private String token;
 
-    @Value("${oauth.accessTokenSecret}")
+    @Value("${twitter.oauth.accessTokenSecret}")
     private String tokenSecret;
 
     @Bean

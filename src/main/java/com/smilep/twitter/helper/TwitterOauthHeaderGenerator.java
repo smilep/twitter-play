@@ -73,7 +73,7 @@ public class TwitterOauthHeaderGenerator {
         append(base, oauth_version, version);
         append(base, oauth_signature, signature);
         base.deleteCharAt(base.length() - 1);
-        log.info("header : " + base.toString());
+        log.debug("header : " + base.toString());
         return base.toString();
     }
 

@@ -15,3 +15,7 @@
 <hr />
 
 #### Play around with the application at https://twitter-play.herokuapp.com/swagger-ui.html
+
+<hr />
+
+#### Full web app with UI available at https://twitter-play-ui.herokuapp.com/twitter-play-ui/

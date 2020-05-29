@@ -25,3 +25,11 @@ hs_err_pid*
 /*.classpath
 /*.project
 /.settings
+
+# IntelliJ
+out/
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws

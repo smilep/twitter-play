@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Disabled("To be run manually")
 @SpringBootTest
-public class PlayTest {
+public class PlayTestTwitter {
 
     @Autowired
     @Qualifier("twitterRestTemplate")
@@ -50,4 +50,5 @@ public class PlayTest {
         assertNotNull(responseBody);
         System.out.println(responseBody);
     }
+
 }

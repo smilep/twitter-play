@@ -17,8 +17,8 @@ import com.smilep.twitter.helper.TwitterOauthHeaderGenerator;
 import com.smilep.twitter.model.FollowersResponse;
 import com.smilep.twitter.model.FollowersResponseDTO;
 import com.smilep.twitter.model.UserDTO;
-import com.smilep.twitter.model.UserResponseDTO;
 import com.smilep.twitter.service.FollowersService;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class FollowersServiceImpl implements FollowersService {
@@ -42,15 +42,16 @@ public class FollowersServiceImpl implements FollowersService {
 
     private UserDTO getUser(String handle) {
         Map<String, String> requestParams = new HashMap<>();
-        requestParams.put("usernames", handle);
-        String header = generator.generateHeader(HttpMethod.GET.name(), Constants.USERS, requestParams);
+        requestParams.put(Constants.SCREEN_NAME, handle);
+        String header = generator.generateHeader(HttpMethod.GET.name(), Constants.USERS_API, requestParams);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", header);
         HttpEntity<String> httpEntity = new HttpEntity<String>("body", headers);
-        ResponseEntity<UserResponseDTO> userResEntity = restTemplate.exchange(Constants.USERS + "?usernames=" + handle, HttpMethod.GET, httpEntity,
-                UserResponseDTO.class);
-        UserResponseDTO userResponse = userResEntity.getBody();
-        return userResponse.getData().get(0);
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(Constants.USERS_API).queryParam(Constants.SCREEN_NAME, handle);
+        ResponseEntity<UserDTO> userResEntity = restTemplate.exchange(uriBuilder.toUriString(), HttpMethod.GET, httpEntity,
+                UserDTO.class);
+        UserDTO userDTO = userResEntity.getBody();
+        return userDTO;
     }
 
     private FollowersResponseDTO getFollows(String handle) {
@@ -58,11 +59,11 @@ public class FollowersServiceImpl implements FollowersService {
         requestParams.put("cursor", "-1");
         requestParams.put("count", "5000");
         requestParams.put("screen_name", handle);
-        String header = generator.generateHeader(HttpMethod.GET.name(), Constants.FRIENDS_IDS, requestParams);
+        String header = generator.generateHeader(HttpMethod.GET.name(), Constants.FRIENDS_IDS_API, requestParams);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", header);
         HttpEntity<String> httpEntity = new HttpEntity<String>("body", headers);
-        ResponseEntity<FollowersResponseDTO> followsResEntity = restTemplate.exchange(Constants.FRIENDS_IDS + "?cursor=-1&count=5000&screen_name=" + handle,
+        ResponseEntity<FollowersResponseDTO> followsResEntity = restTemplate.exchange(Constants.FRIENDS_IDS_API + "?cursor=-1&count=5000&screen_name=" + handle,
                 HttpMethod.GET, httpEntity, FollowersResponseDTO.class);
         FollowersResponseDTO followersResponse = followsResEntity.getBody();
         return followersResponse;

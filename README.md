@@ -27,4 +27,4 @@ API keys can be generated after creating developer account at [Twitter](https://
 
 <hr />
 
-#### Full web app with UI available at https://twitter-play-ui.herokuapp.com/twitter-play-ui/
+#### Full web app with UI available at https://smilep.github.io/twitter-play-ui/
